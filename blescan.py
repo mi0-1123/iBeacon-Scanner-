@@ -149,6 +149,10 @@ def parse_events(sock, loop_count=100):
 		
 		    if (DEBUG == True):
 			print "-------------"
+			# BLECAST_BL
+			print "\tNAME: ", pkt[report_pkt_offset -12: report_pkt_offset - 2]
+			print "\tCOUNTER: ", struct.unpack('<H', pkt[report_pkt_offset - 18: report_pkt_offset - 16])[0]
+			print "\tBRIGHT: ",struct.unpack('<H',pkt[report_pkt_offset - 16: report_pkt_offset - 14])[0]
                     	#print "\tfullpacket: ", printpacket(pkt)
 		    	print "\tUDID: ", printpacket(pkt[report_pkt_offset -22: report_pkt_offset - 6])
 		    	print "\tMAJOR: ", printpacket(pkt[report_pkt_offset -6: report_pkt_offset - 4])
